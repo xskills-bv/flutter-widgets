@@ -1331,25 +1331,7 @@ class RenderBaseSlider extends RenderProxyBox
     Offset dividerCenter;
 
     if (sliderType == SliderType.horizontal) {
-      if (_majorTickPositions[_dateTimePos] == 0.0) {
-        print('test3');
-        dividerCenter =
-            Offset(dx + tickPosition + dividerRadius, dy + halfTrackHeight);
-      }
-      // Due to floating-point operations, last [_majorTickPosition] is greater
-      // than [trackRect.height] or [trackRect.width]. This happens in some
-      // specific layouts alone. To avoid this, we limit it to 8 decimal points.
-      // (e.g. Expected [_majorTickPosition] = 100.0909890118
-      // Current [_majorTickPosition] = 100.0909890121)
-      else if (_majorTickPositions[_dateTimePos].toStringAsFixed(8) ==
-          trackRect.width.toStringAsFixed(8)) {
-        print('test2');
-        dividerCenter =
-            Offset(dx + tickPosition - dividerRadius, dy + halfTrackHeight);
-      } else {
-        print('test');
-        dividerCenter = Offset(dx + tickPosition, dy + halfTrackHeight);
-      }
+      dividerCenter = Offset(dx + tickPosition, dy + halfTrackHeight);
     } else {
       if (_majorTickPositions[_dateTimePos] == 0.0) {
         dividerCenter =
