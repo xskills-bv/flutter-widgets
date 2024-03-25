@@ -1332,6 +1332,7 @@ class RenderBaseSlider extends RenderProxyBox
 
     if (sliderType == SliderType.horizontal) {
       if (_majorTickPositions[_dateTimePos] == 0.0) {
+        print('test3');
         dividerCenter =
             Offset(dx + tickPosition + dividerRadius, dy + halfTrackHeight);
       }
@@ -1342,9 +1343,11 @@ class RenderBaseSlider extends RenderProxyBox
       // Current [_majorTickPosition] = 100.0909890121)
       else if (_majorTickPositions[_dateTimePos].toStringAsFixed(8) ==
           trackRect.width.toStringAsFixed(8)) {
+        print('test2');
         dividerCenter =
             Offset(dx + tickPosition - dividerRadius, dy + halfTrackHeight);
       } else {
+        print('test');
         dividerCenter = Offset(dx + tickPosition, dy + halfTrackHeight);
       }
     } else {
